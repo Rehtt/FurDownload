@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         FurDownloader
-// @namespace    https://rehtt.com
-// @version      1.0
+// @name         Downloader
+// @namespace    http://tampermonkey.net/
+// @version      1.0.1
 // @description  Fur下载器
-// @updateURL    https://raw.githubusercontent.com/Rehtt/BlockWebSite/master/main.js
+// @updateURL    https://raw.githubusercontent.com/Rehtt/FurDownload/master/furdownload.js
 // @author       Rehtt
 // @match        *://www.furaffinity.net/*
 // @icon         https://rehtt.com/img/rehtt.jpg
@@ -26,6 +26,9 @@
 })();
 
 function furaffinity() {
+    function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
     function download(document, ii) {
         let t = document.getElementsByTagName("figcaption")
         let id
@@ -41,7 +44,10 @@ function furaffinity() {
                         let name = url[i].href.split(".")
                         GM_download(url[i].href, name[name.length - 2] + "." + name[name.length - 1])
                         if (ii < t.length - 1) {
-                            download(document, ii + 1)
+                            sleep(500).then(() => {
+                                console.log("脚本By Rehtt")
+                                download(document, ii + 1)
+                            })
                         }
                         break
                     }
