@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Downloader
-// @namespace    http://tampermonkey.net/
+// @name         FurDownloader
+// @namespace    https://rehtt.com
 // @version      1.0
 // @description  Fur下载器
 // @updateURL    https://raw.githubusercontent.com/Rehtt/BlockWebSite/master/main.js
